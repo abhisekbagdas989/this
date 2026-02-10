@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loading...</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #1a1a1a;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .loader {
+            text-align: center;
+        }
+        .spinner {
+            border: 8px solid #333;
+            border-top: 8px solid #00ff00;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="spinner"></div>
+        <h2>Loading... <span id="percent">0</span>%</h2>
+    </div>
+    <script>
+        let percent = 0;
+        setInterval(() => {
+            if (percent < 99) {
+                percent += Math.random() * 2;
+                document.getElementById('percent').textContent = Math.floor(percent);
+            }
+        }, 500);
+    </script>
+</body>
+</html>
